@@ -1,6 +1,6 @@
 import React from "react";
 import "./SideBar.css";
-
+import { Users } from "../../dummyData";
 const SideBar = () => {
   const listItems = [
     { iconText: "Feed", icon: "feed" },
@@ -14,20 +14,6 @@ const SideBar = () => {
     { iconText: "Courses", icon: "graduation-cap" },
   ];
 
-  const friendsList = [
-    "John Doe",
-    "Sachin",
-    "Virat",
-    "Raina",
-    "Yuvraj",
-    "Sehwag",
-    "Pollard",
-    "Gayle",
-    "Yuvraj",
-    "Sehwag",
-    "Pollard",
-    "Gayle",
-  ];
   return (
     <div className="side-bar">
       <div className="side-bar-wrapper">
@@ -44,15 +30,15 @@ const SideBar = () => {
         <button className="sidebar-button">Show More</button>
         <hr className="sidebar-hr" />
         <ul className="sidebar-friendList">
-          {friendsList.map((eachFriend) => {
+          {Users.map((eachFriend) => {
             return (
               <li className="sidebar-friend">
                 <img
                   className="sidebarFriendImg"
-                  src="/assets/person/2.jpeg"
+                  src={eachFriend.profilePicture}
                   alt=""
                 />
-                <span className="sidebarFriendName">{eachFriend}</span>
+                <span className="sidebarFriendName">{eachFriend.username}</span>
               </li>
             );
           })}
